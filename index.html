@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bütçe Takip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Bütçe Takip</h1>
+
+        <!-- Özet Kartlar -->
+        <div class="summary">
+            <div class="card gelir">
+                <h3>Toplam Gelir</h3>
+                <div class="tutar" id="toplamGelir">₺0.00</div>
+            </div>
+            <div class="card gider">
+                <h3>Toplam Gider</h3>
+                <div class="tutar" id="toplamGider">₺0.00</div>
+            </div>
+            <div class="card bakiye">
+                <h3>Kalan</h3>
+                <div class="tutar" id="bakiye">₺0.00</div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="form-box">
+            <h2>Yeni İşlem</h2>
+            <div class="form-row">
+                <div class="input-group">
+                    <label>Tür</label>
+                    <select id="tur">
+                        <option value="gelir">Gelir</option>
+                        <option value="gider">Gider</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Kategori</label>
+                    <select id="kategori">
+                        <option>Maaş</option>
+                        <option>Freelance</option>
+                        <option>Market</option>
+                        <option>Ulaşım</option>
+                        <option>Fatura</option>
+                        <option>Eğlence</option>
+                        <option>Diğer</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Miktar</label>
+                    <input type="text" id="miktar" placeholder="0">
+                </div>
+                <div class="input-group">
+                    <label>Tarih</label>
+                    <input type="date" id="tarih">
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Not</label>
+                <input type="text" id="aciklama" placeholder="opsiyonel">
+            </div>
+            <button class="ekle-btn" onclick="islemEkle()">Ekle</button>
+        </div>
+
+        <!-- Filtreler -->
+        <div class="filtre-butonlar">
+            <button class="filtre active" onclick="filtreUygula('hepsi', this)">Hepsi</button>
+            <button class="filtre" onclick="filtreUygula('gelir', this)">Gelirler</button>
+            <button class="filtre" onclick="filtreUygula('gider', this)">Giderler</button>
+        </div>
+
+        <!-- İşlem Listesi -->
+        <div id="islemler"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
